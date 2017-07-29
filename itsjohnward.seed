@@ -52,8 +52,7 @@ d-i apt-setup/security_path                                 string      /ubuntu
 tasksel tasksel/first                                       multiselect Basic Ubuntu server
 
 # install vim, git, and python-pip
-#d-i pkgsel/include string openssh-server build-essential
-#d-i pkgsel/include string vim git python-pip
+d-i pkgsel/include string openssh-server build-essential vim git python-pip
 
 d-i pkgsel/upgrade                                          select      safe-upgrade
 d-i pkgsel/update-policy                                    select      none
