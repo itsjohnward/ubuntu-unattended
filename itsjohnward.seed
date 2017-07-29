@@ -50,6 +50,10 @@ d-i apt-setup/services-select                               multiselect security
 d-i apt-setup/security_host                                 string      security.ubuntu.com
 d-i apt-setup/security_path                                 string      /ubuntu
 tasksel tasksel/first                                       multiselect Basic Ubuntu server
+
+# install ssh
+d-i pkgsel/include                                          string      openssh-server build-essential
+
 d-i pkgsel/upgrade                                          select      safe-upgrade
 d-i pkgsel/update-policy                                    select      none
 d-i pkgsel/updatedb                                         boolean     true
@@ -74,9 +78,6 @@ d-i partman-partitioning/confirm_write_new_label            boolean     true
 # grub boot loader
 d-i grub-installer/only_debian                              boolean     true
 d-i grub-installer/with_other_os                            boolean     true
-
-# install ssh
-d-i pkgsel/include                                          string      openssh-server build-essential
 
 # finish installation
 d-i finish-install/reboot_in_progress                       note
